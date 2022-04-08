@@ -1,6 +1,6 @@
 # -- Project 2, Lego Truck --
 
-## Members of the group
+## Members of group 2
 * Isak Olsson 
 * Simon Norman Larsson
 * Hampus Nilsson
