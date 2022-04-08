@@ -1,7 +1,12 @@
-# -- Replace with the name of your project --
+# -- Project 2, Lego Truck --
 
 ## Members of the group
--- Replace with student information --
+-Isak Olsson 
+-Simon Nordman Larsson
+-Hampus Nilsson
+-Hanna Israelsson 
+-Oliver Alsén
+
 * Adam Svensson adv@bth.se
 * Albin Persson alo@bth.se
 
