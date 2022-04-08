@@ -1,12 +1,13 @@
 # -- Project 2, Lego Truck --
 
 ## Members of the group
--Isak Olsson 
--Simon Nordman Larsson
--Hampus Nilsson
--Hanna Israelsson 
--Oliver Alsén
+* Isak Olsson 
+* Simon Nordman Larsson
+* Hampus Nilsson
+* Hanna Israelsson 
+* Oliver Alsén
 
+## Teachers 
 * Adam Svensson adv@bth.se
 * Albin Persson alo@bth.se
 
