@@ -2,7 +2,7 @@
 
 ## Members of the group
 * Isak Olsson 
-* Simon Nordman Larsson
+* Simon Norman Larsson
 * Hampus Nilsson
 * Hanna Israelsson 
 * Oliver Alsén
