@@ -24,12 +24,13 @@ def pick_up_pallet():
 
 
 def main():
-    descend.run_until_stalled(-30, then = Stop.HOLD, duty_limit = 60)
+    descend.run_until_stalled(-30, then = Stop.HOLD, duty_limit = None)
     while forksensor.pressed() == False:
         bobbe.straight(50)
     #bobbe.straight(500)
-    #lift.run_time(60, 3000, then=Stop.HOLD, wait=True)
-    lift.run_until_stalled(90, then = Stop.HOLD, duty_limit = 10000)
+    #lift.run_time(60, 100000, then=Stop.HOLD, wait=True)
+    lift.run_target(10,45, then=Stop.HOLD, wait=True)
+    #lift.run_until_stalled(90, then = Stop.HOLD, duty_limit = None)
     #descend.run_until_stalled(30, then = Stop.HOLD, duty_limit = 60)
     #pick_up_pallet()
     return 0
