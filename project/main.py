@@ -23,7 +23,7 @@ forksensor = TouchSensor(Port.S1)
 sensor = Ev3devSensor(Port.S1)
 Ultrasensor = UltrasonicSensor(Port.S4)
 
-# FÄRGER
+# FÄRGER REFLECTION
 # grön = 12
 # lila = 15
 # röd = 84 fel
@@ -34,43 +34,6 @@ Ultrasensor = UltrasonicSensor(Port.S4)
 # svart = 4 
 # vit = 84
 
-def pick_up_pallet():
-    while forksensor.pressed() == False:
-        robot.straight(-50)
-    lift.run_until_stalled(30, then = Stop.HOLD, duty_limit = 60)
-
-def predetermined_path(): # Follow predettermined path
-    if light.color() == Color.BROWN:  # Välj rätt färg! Nu är det svart
-        robot.drive(-30, 35)
-    #elif light.color() == Color.BLUE:
-        #robot.drive(-40, -35)
-        #ev3.speaker.beep(frequency=500, duration=100)
-        #lift.run_angle(100, 180, then=Stop.HOLD, wait=False)
-    else:
-        robot.drive(-30, -35)  # -35 betyder att den vänder sig -35 grader 
-    
-def predetermined_path_reflection():
-    #while robot.distance >= 1000:
-        #correction = (30 - light.reflection())*2
-        #robot.drive(100,correction)
-    if light.reflection() <= 92:
-        robot.drive(-30, -35)
-    else:
-        robot.drive(-30, 35)
-
-def green_path():
-    while forksensor.pressed() == False:
-        if light.color() == Color.GREEN:
-            robot.drive(-20, -35)
-        else: 
-            robot.drive(-20, 35)
-
-def blue_path():
-    while forksensor.pressed() == False:
-        if light.color() == Color.BLUE:
-            robot.drive(-30, -35)
-        else: 
-            robot.drive(-30, 35)
 
 def drive(linecolor): # Follow line (predetermined path)
     threshold = (linecolor + 84) / 2
@@ -85,14 +48,10 @@ def drive(linecolor): # Follow line (predetermined path)
 
         # Set the drive base speed and turn rate.
         robot.drive(DRIVE_SPEED, turn_rate)
-        # color_list = []
-        # color = color_sensor.color()
-        # color_list.append(color)
-        # You can wait for a short time or do other things in this loop.
         wait(10)
     robot.stop()
 
-def from_green_2_blue():
+def from_green_2_blue(): #Drives from the green lines and drives to the blue line
     linecolor=1
     threshold = (linecolor + 84) / 2
     DRIVE_SPEED =-50
@@ -122,7 +81,7 @@ def from_green_2_blue():
         wait(10)
     robot.stop()
 
-def from_Purple_2_blue():
+def from_Purple_2_blue(): #Drives from Purple to Blue line
     linecolor=12
     threshold = (linecolor + 84) / 2
     DRIVE_SPEED =-50
@@ -148,7 +107,7 @@ def from_Purple_2_blue():
         robot.drive(DRIVE_SPEED, turn_rate)
         wait(10)
 
-def pickup_pallet_grey(linecolor):
+def pickup_pallet_grey(linecolor): #Picks up pallet at grey platform by following yellow line
     threshold = (linecolor + 9) / 2
     DRIVE_SPEED =-70
     PROPORTIONAL_GAIN = 1.2
@@ -163,7 +122,7 @@ def pickup_pallet_grey(linecolor):
         lift.reset_angle(0)
         lift.run_angle(200,180, then=Stop.HOLD, wait=True)
 
-def countdown_turn(t):
+def countdown_turn(t): #Turns the robot to find new color
     while t:
         mins, secs = divmod(t, 60)
         timer = '{:02d}:{:02d}'.format(mins, secs)
@@ -173,14 +132,14 @@ def countdown_turn(t):
         t -= 1
 
 def main():
-    #drive(13) #Följ blå
-    #drive(20) #Följ lila
-    #pickup_pallet_grey(70)
-    #from_Purple_2_blue()
+    #drive(13) #Följ blå Test
+    #drive(20) #Följ lila Test
+    #pickup_pallet_grey(70) #test
+    #from_Purple_2_blue() #TEst
     from_green_2_blue()
     pickup_pallet_grey(70)
-    #pickup_pallet_new(70)
-    #print(light.rgb())
+    #pickup_pallet_new(70) #test
+    #print(light.rgb()) #test
     return 0
 
 if _name_ == '_main_':
